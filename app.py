@@ -8,7 +8,7 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-mistral_client = MistralClient(api_key=os.getenv("MISTRAL_API_KEY", "LV3LttCP87ysAJTbJIU5gNpLzBHN2tqW"))
+mistral_client = MistralClient(api_key=os.getenv("MISTRAL_API_KEY", "nL7L8xmBMwwTso5yoaGqj2PRV9yMrVAP"))
 
 sessions = {}
 
@@ -24,10 +24,10 @@ riddles = [
 ]
 
 # Simulated site URL and correct sentence (replace with your actual URL and sentence)
-SITE_URL = "https://prachi5791.github.io/CSI_Lord/"
-CORRECT_SENTENCE = "Data integrity requires deeper analysis."
-CORRECT_CODE = "TEMPORAL_UNLOCK_391"
-CORRECT_IMAGE = "Lovely"
+SITE_URL = "https://csi-oracle.vercel.app/"
+CORRECT_SENTENCE = "Wisdom is earned not given."
+CORRECT_CODE = "Vraelthorn"
+CORRECT_IMAGE = "The king's shadow lingers where his crown once lay."
 
 def generate_mistral_response(prompt, context):
     # Updated Mistral API call for themed responses
@@ -107,7 +107,7 @@ def chat():
         else:
             response = generate_mistral_response(user_input, "User is getting deceived and provides an incorrect sentence or random input.")
 
-    elif session["stage"] == "doorway_decision" and session["sentence_requested"]:
+    elif session["stage"] == "doorway_decision" :
         if "leave" in user_input.lower() or "yes" in user_input.lower():
             response = "The whispers of the past warned you, yet you ignored them. Time does not forgive. One of you… is no more."
             session["stage"] = "patterns"
